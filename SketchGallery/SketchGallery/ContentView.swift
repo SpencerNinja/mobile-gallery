@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         
         VStack {
@@ -17,18 +18,20 @@ struct ContentView: View {
                 .foregroundColor(Color.green)
                 .padding()
             
-            VStack {
+            HStack {
+                Spacer()
+                Text("Inspiration Source")
+                Spacer()
+                Text("Pen Sketch")
+                Spacer()
+            }
+            .font(.subheadline)
+            .foregroundColor(Color.orange)
+            
+            ScrollView {
                 HStack {
                     Spacer()
-                    Text("Inspiration Source")
-                    Spacer()
-                    Text("Pen Sketch")
-                    Spacer()
-                }
-                .font(.subheadline)
-                .foregroundColor(Color.orange)
-                HStack {
-                    Spacer()
+                    // TODO: use a ternary operator to display text if image is missing
                     Text("image missing")
                         .foregroundColor(Color.red)
                         .frame(width: 175, height: 175)
@@ -77,6 +80,58 @@ struct ContentView: View {
                         .scaledToFit()
                         .frame(width: 175, height: 175)
                     Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Image("Bulbasaur")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                    Image("Bulbasaur_sketch")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Image("Squirtle1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                    Image("Squirtle1_sketch")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Image("Squirtle2")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                    Image("Squirtle2_sketch")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 175, height: 175)
+                    Spacer()
+                }
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Text("Add image")
+                            .foregroundColor(Color.red)
+                    }
+                    Button {
+                        
+                    } label: {
+                        Text("Add image")
+                    }
                 }
             }
             
