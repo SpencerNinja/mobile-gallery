@@ -13,7 +13,7 @@ struct ContentView: View {
         
         VStack {
             
-            Text("Hello, world!")
+            Text("Sketch Gallery")
                 .font(.title)
                 .foregroundColor(Color.green)
                 .padding()
@@ -29,115 +29,52 @@ struct ContentView: View {
             .foregroundColor(Color.orange)
             
             ScrollView {
+                DoubleFramesView(sourceImage: "IMAGE MISSING", sketchImage: "DarkPikachu_sketch")
+                DoubleFramesView(sourceImage: "GlassesPika", sketchImage: "GlassesPika_sketch")
+                DoubleFramesView(sourceImage: "Umbreon", sketchImage: "Umbreon_sketch")
+                DoubleFramesView(sourceImage: "Charmander", sketchImage: "Charmander_sketch")
+                DoubleFramesView(sourceImage: "Bulbasaur", sketchImage: "Bulbasaur_sketch")
+                DoubleFramesView(sourceImage: "Squirtle1", sketchImage: "Squirtle1_sketch")
+                DoubleFramesView(sourceImage: "Squirtle2", sketchImage: "Squirtle2_sketch")
+                DoubleFramesView(sourceImage: "Leonardo", sketchImage: "Leonardo_sketch")
+                
                 HStack {
                     Spacer()
-                    // TODO: use a ternary operator to display text if image is missing
-                    Text("image missing")
-                        .foregroundColor(Color.red)
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("DarkPikachu_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("GlassesPika")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("GlassesPika_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("Umbreon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("Umbreon_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("Charmander")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("Charmander_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("Bulbasaur")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("Bulbasaur_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("Squirtle1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("Squirtle1_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Image("Squirtle2")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                    Image("Squirtle2_sketch")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 175, height: 175)
-                    Spacer()
-                }
-                HStack {
-                    Button {
-                        
-                    } label: {
+                    Button {} label: {
                         Text("Add image")
                             .foregroundColor(Color.red)
                     }
-                    Button {
-                        
-                    } label: {
+                    Spacer()
+                    Button {} label: {
                         Text("Add image")
                     }
+                    Spacer()
                 }
             }
             
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .background(Color.black)
+    }
+}
+
+struct DoubleFramesView: View {
+    var sourceImage: String
+    var sketchImage: String
+    
+    var body: some View {
+        HStack {
+            Image(sourceImage)
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 150, height: 150)
+                .cornerRadius(5)
+            Image(sketchImage)
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 150, height: 150)
+                .cornerRadius(5)
+        }
     }
 }
 
